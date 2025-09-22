@@ -5,6 +5,7 @@ import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
+import { authProvider, dataProvider, liveProvider } from "./providers";
 import routerProvider, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
@@ -20,8 +21,11 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
+                dataProvider={dataProvider}
+                liveProvider={liveProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
+                authProvider={authProvider}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
